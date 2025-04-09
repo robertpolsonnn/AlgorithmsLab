@@ -5,7 +5,7 @@ body {
   margin:0;
   border:0;
   background-color: aliceblue;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .main-container {
@@ -43,10 +43,10 @@ header{
   flex-direction: column;
   justify-content: center;
   background-color:#4b71f0;
-  height:100%;
-  padding: 20px 35px;
+  height:35px;
   width:100%;
   position:static;
+  padding: 25px 35px;
   font-size:larger;
   font-weight: bold;
 }
