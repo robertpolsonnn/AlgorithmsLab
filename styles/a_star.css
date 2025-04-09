@@ -1,0 +1,10 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  #mapCanvas {
+    border: 1px solid #000;
+    margin-top: 10px;
+  }
+  .controls {
+    margin-bottom: 10px;
+  }

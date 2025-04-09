@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="../styles/main.css">
+
+  <link rel="stylesheet" href="../styles/clustering.css">
+
+</head>
+<body>
+  <header>
+    <a href="../index.html">Демонстрация алгоритмов</a>
+  </header>
+  <div class="container">
+    <h1>Алгоритмы кластеризации</h1>
+    <div class="controls">
+      <div class="control-group">
+        <label for="algorithm">Алгоритм:</label>
+        <select id="algorithm">
+          <option value="kmeans">K-means</option>
+          <option value="hierarchy">Иерархический</option>
+          <option value="dbscan">DBSCAN</option>
+        </select>
+      </div>
+      <div class="control-group" id="kmeans-controls">
+        <label for="points-num">Количество центров:</label>
+        <input type="number" id="points-num" min="1" max="10" value="3">
+      </div>
+      
+      <div class="control-group" id="dbscan-controls" style="display: none;">
+        <label for="radius">Радиус:</label>
+        <input type="number" id="radius" min="10" max="200" value="100">
+        <label for="min-pts">Мин. точек:</label>
+        <input type="number" id="min-pts" min="1" max="10" value="3">
+      </div>
+      
+      <div class="control-group" id="hierarchy-controls" style="display: none;">
+        <label for="clusters-count">Кол-во кластеров:</label>
+        <input type="number" id="clusters-count" min="1" max="10" value="3">
+      </div>
+      
+      
+      <div class="buttons">
+        <button id="run-btn">Запустить кластеризацию</button>
+        <button id="clear-btn">Очистить точки</button>
+      </div>
+    </div>
+    
+    <div class="canvas-container">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  
+  <script src="../sctipts/clustering.js"></script>
+</body>
+</html>
+
