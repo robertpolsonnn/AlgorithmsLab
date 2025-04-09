@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Задача коммивояжёра</title>
+  <style>
+    #myCanvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="myCanvas" width="600" height="400"></canvas>
+  <br>
+
+  <button id="mainButton">Начать</button>
+  <br><br>
+
+  <div>
+    <strong>Города:</strong> <span id="vertexNumberId">0</span>
+    &nbsp;|&nbsp;
+    <strong>Длина пути:</strong> <span id="bestPathId">0</span>
+    &nbsp;|&nbsp;
+    <strong>Итерация:</strong> <span id="iterationId">0</span>
+  </div>
+  <br>
+
+  <button id="showSettingsModalWindow">Настройки</button>
+  <button id="showGraphicsModalWindow">Графика</button>
+
+  <div id="shadowSettings" style="display:none;">
+    <label>Максимальное количество городов: </label>
+    <input type="number" id="maxCitiesNumberInputId">
+    <span id="maxCitiesNumberOutputId"></span>
+    <br><br>
+    <button id="saveSettings">Сохранить настройки</button>
+  </div>
+
+  <div id="shadowGraphics" style="display:none;">
+    <label>Цвет городов: </label>
+    <input type="text" id="citiesColorId" value="#000000"><br>
+    <label>Цвет остальных путей: </label>
+    <input type="text" id="otherEdgesColorId" value="#999999"><br>
+    <label>Цвет основного пути: </label>
+    <input type="text" id="mainEdgesColorId" value="#ffff00"><br>
+    <label>Цвет результирующего пути: </label>
+    <input type="text" id="resultEdgesColorId" value="#00ff00"><br>
+    <label>Прозрачность остальных путей: </label>
+    <input type="text" id="otherEdgesOpacityInputId" value="0.15">
+    <span id="otherEdgesOpacityOutputId"></span>
+    <br><br>
+    <button id="saveGraphics">Сохранить графику</button>
+  </div>
+
+  <script src="../scripts/genetic.js"></script>
+</body>
+</html>
