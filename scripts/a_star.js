@@ -12,6 +12,7 @@ window.addEventListener("load", function () {
     const generateMapBtn = document.getElementById("generateMapBtn");
     const modeSelect = document.getElementById("modeSelect");
     const runAlgorithmBtn = document.getElementById("runAlgorithmBtn");
+    const clearMapBtn = document.getElementById("clearMapBtn");
     // --- Состояние редактирования ---
     let mode = "obstacle";   // режим: "obstacle" / "start" / "end"
     let startCell = null;    // координаты стартовой точки { x, y }
@@ -113,6 +114,19 @@ window.addEventListener("load", function () {
         }
         drawGrid();   // Отображаем результат
     });
+
+    // Очистка карты
+    clearMapBtn.addEventListener("click", () => {                
+        for (let y = 0; y < gridSize; y++) {                        
+            for (let x = 0; x < gridSize; x++) {                    
+                grid[y][x] = "empty";                                 
+            }                                                          
+        }                                                            
+        startCell = null;                                                  
+        endCell = null;                                                  
+        statusMessage.textContent = "Карта очищена.";                      
+        drawGrid();                                                        
+    });    
 
     // Рисуем всю сетку
     function drawGrid() {
