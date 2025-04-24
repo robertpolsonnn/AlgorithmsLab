@@ -2,57 +2,66 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Задача коммивояжёра</title>
-  <style>
-    #myCanvas {
-      border: 1px solid black;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генетический поиск пути</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <canvas id="myCanvas" width="600" height="400"></canvas>
-  <br>
+  <div class="container">
+    <div class="header">
+      <h1>Генетический поиск пути</h1>
+    </div>
 
-  <button id="mainButton">Начать</button>
-  <br><br>
+    <div class="controls">
+      <button id="mainButton">Начать</button>
+      <button id="showSettingsModalWindow">Настройки</button>
+      <button id="showGraphicsModalWindow">Графика</button>
+    </div>
 
-  <div>
-    <strong>Города:</strong> <span id="vertexNumberId">0</span>
-    &nbsp;|&nbsp;
-    <strong>Длина пути:</strong> <span id="bestPathId">0</span>
-    &nbsp;|&nbsp;
-    <strong>Итерация:</strong> <span id="iterationId">0</span>
-  </div>
-  <br>
+    <div class="canvas-wrapper">
+      <canvas id="myCanvas" width="600" height="400"></canvas>
+    </div>
 
-  <button id="showSettingsModalWindow">Настройки</button>
-  <button id="showGraphicsModalWindow">Графика</button>
-
-  <div id="shadowSettings" style="display:none;">
-    <label>Максимальное количество городов: </label>
-    <input type="number" id="maxCitiesNumberInputId">
-    <span id="maxCitiesNumberOutputId"></span>
-    <br><br>
-    <button id="saveSettings">Сохранить настройки</button>
+    <div class="info">
+      <div class="info-item">Вершины: <span id="vertexNumberId">0</span></div>
+      <div class="info-item">Длина: <span id="bestPathId">0</span></div>
+      <div class="info-item">Итерация: <span id="iterationId">0</span></div>
+    </div>
   </div>
 
-  <div id="shadowGraphics" style="display:none;">
-    <label>Цвет городов: </label>
-    <input type="text" id="citiesColorId" value="#000000"><br>
-    <label>Цвет остальных путей: </label>
-    <input type="text" id="otherEdgesColorId" value="#999999"><br>
-    <label>Цвет основного пути: </label>
-    <input type="text" id="mainEdgesColorId" value="#ffff00"><br>
-    <label>Цвет результирующего пути: </label>
-    <input type="text" id="resultEdgesColorId" value="#00ff00"><br>
-    <label>Прозрачность остальных путей: </label>
-    <input type="text" id="otherEdgesOpacityInputId" value="0.15">
-    <span id="otherEdgesOpacityOutputId"></span>
-    <br><br>
-    <button id="saveGraphics">Сохранить графику</button>
+  <!-- Модалка Настроек -->
+  <div id="shadowSettings" class="modal-shadow" style="display:none;">
+    <div class="modal">
+      <h2>Настройки</h2>
+      <label>Макс. городов: <input id="maxCitiesNumberInputId" type="number" min="2" max="50"></label>
+      <span id="maxCitiesNumberOutputId"></span>
+      <div class="modal-buttons">
+        <button id="saveSettings">Сохранить</button>
+        <button onclick="document.getElementById('shadowSettings').style.display='none'">Отмена</button>
+      </div>
+    </div>
   </div>
 
-  <script src="../scripts/genetic.js"></script>
+  <!-- Модалка Графики -->
+  <div id="shadowGraphics" class="modal-shadow" style="display:none;">
+    <div class="modal">
+      <h2>Графика</h2>
+      <label>Цвет городов: <input id="citiesColorId" type="color"></label>
+      <label>Цвет остальных рёбер: <input id="otherEdgesColorId" type="color"></label>
+      <label>Цвет главных рёбер: <input id="mainEdgesColorId" type="color"></label>
+      <label>Цвет результата: <input id="resultEdgesColorId" type="color"></label>
+      <label>Непрозрачность остальных: 
+        <input id="otherEdgesOpacityInputId" type="range" min="0" max="1" step="0.05">
+        <span id="otherEdgesOpacityOutputId"></span>
+      </label>
+      <div class="modal-buttons">
+        <button id="saveGraphics">Сохранить</button>
+        <button onclick="document.getElementById('shadowGraphics').style.display='none'">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
