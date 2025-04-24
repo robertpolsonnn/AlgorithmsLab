@@ -1,10 +1,129 @@
+:root {
+  --bg-panel: #ffffff;
+  --border: #d1d5db;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --success: #10b981;
+  --text: #1f2937;
+  --text-light: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-  }
-  #mapCanvas {
-    border: 1px solid #000;
-    margin-top: 10px;
-  }
-  .controls {
-    margin-bottom: 10px;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+
+  /* Белый фон с разноцветными полупрозрачными пятнами */
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(245, 101, 101, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 70% 10%, rgba(101, 178, 245, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 30% 75%, rgba(163, 245, 101, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(245, 223, 101, 0.3) 0%, transparent 40%);
+  background-repeat: no-repeat;
+  
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.container {
+  width: 600px;
+  margin: 40px 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.header {
+  padding: 16px 24px;
+  background: var(--primary);
+  color: #fff;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 24px;
+  align-items: center;
+}
+
+.controls label {
+  flex: 0 0 120px;
+  font-weight: 500;
+}
+
+.controls input[type="number"],
+.controls select {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.controls button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.controls button:hover {
+  background-color: var(--primary-hover);
+}
+
+#runAlgorithmBtn {
+  background-color: var(--success);
+}
+
+#runAlgorithmBtn:hover {
+  background-color: #059669;
+}
+
+#clearMapBtn {
+  background-color: #ef4444;
+}
+
+#clearMapBtn:hover {
+  background-color: #dc2626;
+}
+
+#statusMessage {
+  padding: 0 24px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  min-height: 1.2em;
+}
+
+.canvas-wrapper {
+  padding: 16px 24px 24px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: #fff;
+}
