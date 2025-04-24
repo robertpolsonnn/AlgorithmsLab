@@ -1,0 +1,140 @@
+:root {
+  --bg-page: #ffffff;
+  --bg-panel: #ffffff;
+  --border: #d1d5db;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --accent: #10b981;
+  --text: #1f2937;
+  --text-light: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+
+  /* Белый фон с разноцветными полупрозрачными пятнами */
+  background-color: var(--bg-page);
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(245, 101, 101, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 70% 10%, rgba(101, 178, 245, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 30% 75%, rgba(163, 245, 101, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(245, 223, 101, 0.3) 0%, transparent 40%);
+  background-repeat: no-repeat;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: var(--text);
+}
+
+.container {
+  width: 700px;
+  margin: 40px 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.header {
+  background: var(--primary);
+  padding: 16px 24px;
+  color: #fff;
+}
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  padding: 16px 24px;
+}
+.controls button {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.controls button:hover {
+  background-color: var(--primary-hover);
+}
+
+.canvas-wrapper {
+  padding: 0 24px 24px;
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.info {
+  display: flex;
+  gap: 24px;
+  padding: 16px 24px 24px;
+  border-top: 1px solid var(--border);
+}
+.info-item {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* Модальные окна */
+.modal-shadow {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.modal h2 {
+  margin-top: 0;
+}
+.modal label {
+  display: block;
+  margin: 10px 0;
+}
+.modal-buttons {
+  text-align: right;
+  margin-top: 16px;
+}
+.modal-buttons button {
+  margin-left: 8px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.modal-buttons button:hover {
+  background-color: var(--primary-hover);
+}
