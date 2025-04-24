@@ -2,42 +2,41 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Генерация карты и поиск пути</title>
-
-  <link rel="stylesheet" href="../styles/main.css">
-  <link rel="stylesheet" href="../styles/a_star.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <a href="../index.html">Демонстрация алгоритмов</a>
-  </header>
-  <h1>Генерация карты и поиск пути</h1>
-  
-  <div class="controls">
-    <label>Размер карты (n x n): </label>
-    <input type="number" id="gridSizeInput" value="5" min="5" max="50">
-    <button id="generateMapBtn">Сгенерировать карту</button>
+
+  <div class="container">
+    <div class="header">
+      <h1>Генерация карты и поиск пути</h1>
+    </div>
+
+    <div class="controls">
+      <label for="gridSizeInput">Размер карты:</label>
+      <input type="number" id="gridSizeInput" value="5" min="5" max="50">
+      <button id="generateMapBtn">Сгенерировать</button>
+    </div>
+
+    <div class="controls">
+      <label for="modeSelect">Режим:</label>
+      <select id="modeSelect">
+        <option value="obstacle">Препятствие</option>
+        <option value="start">Начало</option>
+        <option value="end">Конец</option>
+      </select>
+      <button id="runAlgorithmBtn">Найти маршрут</button>
+      <button id="clearMapBtn">Очистить</button>
+    </div>
+
+    <p id="statusMessage"></p>
+
+    <div class="canvas-wrapper">
+      <canvas id="mapCanvas" width="500" height="500"></canvas>
+    </div>
   </div>
 
-  <div class="controls">
-    <label>Режим редактирования:</label>
-    <select id="modeSelect">
-      <option value="obstacle">Установить препятствие</option>
-      <option value="start">Установить начало</option>
-      <option value="end">Установить конец</option>
-    </select>
-  </div>
-
-  <div class="controls">
-    <button id="runAlgorithmBtn">Найти маршрут</button>
-  </div>
-
-  <p id="statusMessage"></p>
-
-  <canvas id="mapCanvas" width="500" height="500"></canvas>
-
-  <!-- Подключаем внешний JS-файл -->
-  <script src="../scripts/a_star.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
